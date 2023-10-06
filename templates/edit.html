@@ -1,0 +1,67 @@
+{{define "Edit"}}
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Edit Product</title>
+        {{template "_bootstrap"}}
+
+    </head>
+    <body>
+    <h1>Creates An Edit Product</h1>
+
+   {{template "_nav"}}
+    <main class="container">
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container">
+                <h1 class="display-4">Edit Product</h1>
+                <p class="lead">Edits an product</p>
+            </div>
+            <form action="update" method="POST">
+                <input type="hidden" name="id" value={{.Id}}>
+                <div class="row">
+                    <div class="col-sm-8">
+                        <div class="form-group">
+                            <label for="name">Name:</label>
+                            <input class="form-control" type="text" name="name" id="name" value={{.Name}} required>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-8">
+                        <div class="form-group">
+                            <label for="description">Description:</label>
+                            <input class="form-control" type="text" name="description" id="description" value={{.Description}} required>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-8">
+                        <div class="form-group">
+                            <label for="price">Price:</label>
+                            <input class="form-control" type="number" name="price" id="price" value={{.Price}} required>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-8">
+                        <div class="form-group">
+                            <label for="quantity">Quantity:</label>
+                            <input class="form-control" type="number" name="quantity" id="quantity" value={{.Quantity}} required>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-8">
+                        <button class="btn btn-info" type="submit">Update</button>
+                        <a class="btn btn-secondary" href="/">Cancel</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    {{template "_bootstrapscripts"}}
+    </body>
+    </html>
+{{end}}

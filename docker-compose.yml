@@ -1,0 +1,16 @@
+# an docker compose with postgres configuration
+version: '3.1'
+services:
+  postgres:
+    container_name: people_db
+    image: postgres:14-alpine3.18
+    environment:
+      POSTGRES_PASSWORD: pgpass123
+      POSTGRES_USER: store_user
+      POSTGRES_DB: store
+    ports:
+      - '5432:5432'
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+volumes:
+  pgdata:
